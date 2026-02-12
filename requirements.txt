@@ -5,6 +5,8 @@ openpyxl
 matplotlib
 numpy
 datetime
+plotly
 altair==4.2.2
+
 
 
