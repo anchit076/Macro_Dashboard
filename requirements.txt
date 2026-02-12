@@ -8,4 +8,4 @@ datetime
 altair==4.2.2
 pillow
 imghdr-py
-
+rich==13.9.4
