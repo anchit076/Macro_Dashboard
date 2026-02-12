@@ -227,7 +227,7 @@ def main():
     # Load data
     try:
         # Read your input file - UPDATE THIS PATH
-        input_df = pd.read_excel(r"G:\.shortcut-targets-by-id\1LiI03V-B8eJ1VZLeztOuHruBdi2vpa2l\Anchit\Quant Dataset.xlsx")  # Use your actual path here
+        input_df = pd.read_excel("Quant Dataset.xlsx")  # Use your actual path here
         
         # Process data using the cleaner function
         clean_df = cleaner(input_df, 'Date', 'Close Price', 'Index Name')
@@ -495,4 +495,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
