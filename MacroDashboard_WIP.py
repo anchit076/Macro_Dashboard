@@ -6,6 +6,12 @@ import openpyxl
 # Set page config for wider layout
 st.set_page_config(layout="wide", page_title="Rolling Returns Dashboard")
 
+@st.cache_data
+def load_data(filepath):
+    """Load and cache the input Excel file"""
+    return pd.read_excel(filepath)
+
+@st.cache_data
 def cleaner(df, date_col, close_price_col, instrument_col):
     """
     Calculate rolling returns for various time periods based on trading days.
@@ -67,7 +73,7 @@ def cleaner(df, date_col, close_price_col, instrument_col):
     
     return clean_df
 
-
+@st.cache_data
 def calculate_stats(df, return_columns, start_date=None, end_date=None):
     """
     Calculate descriptive statistics for the given dataframe and date range.
@@ -228,7 +234,7 @@ def main():
     # Load data
     try:
         # Read your input file - UPDATE THIS PATH
-        input_df = pd.read_excel("Quant Dataset.xlsx")  # Use your actual path here
+        input_df = load_data("Quant Dataset.xlsx")  # Use your actual path here
         
         # Process data using the cleaner function
         clean_df = cleaner(input_df, 'Date', 'Close Price', 'Index Name')
@@ -498,4 +504,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
